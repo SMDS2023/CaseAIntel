@@ -3,49 +3,368 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LegalAIntel - Florida Legal Data Solutions</title>
-    <meta name="description" content="LegalAIntel provides AI-powered legal data tools for Florida attorneys. Access breath test anomaly databases and more.">
-    <meta http-equiv="refresh" content="0; url=/intox8000_Anomalies/">
-    <link rel="canonical" href="https://legalaintel.com/intox8000_Anomalies/">
+    <title>LegalAIntel - AI-Powered Data Solutions for Florida Attorneys</title>
+    <meta name="description" content="LegalAIntel provides AI-powered legal data tools for Florida attorneys. FDLE breath test analysis, lead generation, and custom solutions.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
     <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-            margin: 0;
-            background: #1a1a2e;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(135deg, #0f0f1a 0%, #1a1a2e 50%, #16213e 100%);
             color: white;
+            min-height: 100vh;
         }
+
         .container {
-            text-align: center;
-            padding: 40px;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
         }
-        h1 {
-            font-size: 2.5rem;
+
+        /* Header */
+        header {
+            padding: 20px 0;
+        }
+
+        .logo {
+            font-size: 28px;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+        }
+
+        .logo .legal { color: #ffffff; }
+        .logo .ai {
+            color: #4a90d9;
+            background: linear-gradient(135deg, #4a90d9, #67b8f7);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .logo .intel { color: #ffffff; }
+
+        /* Hero */
+        .hero {
+            text-align: center;
+            padding: 80px 0 60px;
+        }
+
+        .hero-logo {
+            font-size: 64px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            letter-spacing: -2px;
+        }
+
+        .hero-logo .ai {
+            color: #4a90d9;
+            background: linear-gradient(135deg, #4a90d9, #67b8f7);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            position: relative;
+        }
+
+        .tagline {
+            font-size: 24px;
+            font-weight: 300;
+            color: #a0a0b0;
+            margin-bottom: 15px;
+        }
+
+        .sub-tagline {
+            font-size: 18px;
+            color: #707080;
+            margin-bottom: 40px;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: linear-gradient(135deg, #4a90d9, #357abd);
+            color: white;
+            padding: 15px 40px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 16px;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(74, 144, 217, 0.3);
+        }
+
+        /* Services */
+        .services {
+            padding: 60px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            color: #4a90d9;
+            margin-bottom: 40px;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .service-card {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 16px;
+            padding: 30px;
+            transition: transform 0.2s, border-color 0.2s;
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+            border-color: rgba(74, 144, 217, 0.3);
+        }
+
+        .service-card.live {
+            border-color: rgba(74, 144, 217, 0.5);
+            background: rgba(74, 144, 217, 0.05);
+        }
+
+        .service-icon {
+            font-size: 32px;
+            margin-bottom: 15px;
+        }
+
+        .service-card h3 {
+            font-size: 20px;
+            font-weight: 600;
             margin-bottom: 10px;
         }
-        p {
-            color: #aaa;
-            margin-bottom: 30px;
+
+        .service-card p {
+            color: #a0a0b0;
+            font-size: 15px;
+            line-height: 1.6;
+            margin-bottom: 15px;
         }
-        a {
+
+        .service-badge {
+            display: inline-block;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .badge-live {
+            background: rgba(74, 144, 217, 0.2);
+            color: #67b8f7;
+        }
+
+        .badge-coming {
+            background: rgba(255, 193, 7, 0.15);
+            color: #ffc107;
+        }
+
+        .badge-free { color: #4ade80; background: rgba(74, 222, 128, 0.15); }
+        .badge-paid { color: #a78bfa; background: rgba(167, 139, 250, 0.15); }
+
+        .service-link {
+            display: inline-block;
+            margin-top: 10px;
             color: #4a90d9;
             text-decoration: none;
-            font-size: 1.1rem;
+            font-weight: 600;
+            font-size: 14px;
         }
-        a:hover {
+
+        .service-link:hover {
             text-decoration: underline;
+        }
+
+        /* Pricing Tiers */
+        .pricing {
+            padding: 60px 0;
+            text-align: center;
+        }
+
+        .pricing-tiers {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            flex-wrap: wrap;
+            margin-top: 30px;
+        }
+
+        .tier {
+            text-align: center;
+        }
+
+        .tier-icon {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 15px;
+            font-size: 24px;
+        }
+
+        .tier-free .tier-icon { background: rgba(74, 222, 128, 0.15); }
+        .tier-paid .tier-icon { background: rgba(167, 139, 250, 0.15); }
+        .tier-bespoke .tier-icon { background: rgba(251, 191, 36, 0.15); }
+
+        .tier h4 {
+            font-size: 16px;
+            margin-bottom: 5px;
+        }
+
+        .tier p {
+            color: #707080;
+            font-size: 13px;
+        }
+
+        /* Footer */
+        footer {
+            padding: 40px 0;
+            text-align: center;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            margin-top: 40px;
+        }
+
+        .footer-logo {
+            font-size: 20px;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+
+        .footer-logo .ai {
+            color: #4a90d9;
+        }
+
+        footer p {
+            color: #606070;
+            font-size: 14px;
+        }
+
+        footer a {
+            color: #4a90d9;
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero-logo { font-size: 42px; }
+            .tagline { font-size: 20px; }
+            .sub-tagline { font-size: 16px; }
+            .services-grid { grid-template-columns: 1fr; }
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <h1>LegalAIntel</h1>
-        <p>Florida Legal Data Solutions</p>
-        <p>Redirecting to Intoxilyzer 8000 Anomaly Lookup...</p>
-        <a href="/intox8000_Anomalies/">Click here if not redirected</a>
-    </div>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <span class="legal">Legal</span><span class="ai">AI</span><span class="intel">ntel</span>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="container">
+                <h1 class="hero-logo">
+                    <span class="legal">Legal</span><span class="ai">AI</span><span class="intel">ntel</span>
+                </h1>
+                <p class="tagline">AI-Powered Data Solutions for Florida Attorneys</p>
+                <p class="sub-tagline">Transforming legal data into actionable insights</p>
+                <a href="/intox8000_Anomalies/" class="cta-button">Explore Our Live Tool</a>
+            </div>
+        </section>
+
+        <section class="services">
+            <div class="container">
+                <h2 class="section-title">Our Solutions</h2>
+                <div class="services-grid">
+                    <div class="service-card live">
+                        <div class="service-icon">🔬</div>
+                        <h3>FDLE Breath Test Tools</h3>
+                        <p>Searchable database of Intoxilyzer 8000 anomalies. Find control test failures, zero volume readings, and equipment irregularities to support DUI defense cases.</p>
+                        <span class="service-badge badge-live">Live Now</span>
+                        <span class="service-badge badge-free">Free</span>
+                        <br>
+                        <a href="/intox8000_Anomalies/" class="service-link">Try It Now →</a>
+                    </div>
+
+                    <div class="service-card">
+                        <div class="service-icon">📊</div>
+                        <h3>Lead Generation Tools</h3>
+                        <p>AI-powered lead generation and client acquisition tools designed specifically for Florida law firms. Target the right clients at the right time.</p>
+                        <span class="service-badge badge-coming">Coming Soon</span>
+                    </div>
+
+                    <div class="service-card">
+                        <div class="service-icon">⚖️</div>
+                        <h3>Court Analytics</h3>
+                        <p>Data-driven insights into Florida court proceedings, judge patterns, and case outcomes to inform your litigation strategy.</p>
+                        <span class="service-badge badge-coming">Coming Soon</span>
+                    </div>
+
+                    <div class="service-card">
+                        <div class="service-icon">🛠️</div>
+                        <h3>Bespoke Solutions</h3>
+                        <p>Custom data tools built to your firm's specific needs. From case management integrations to specialized research databases.</p>
+                        <span class="service-badge badge-coming">Coming Soon</span>
+                        <span class="service-badge badge-paid">Custom Pricing</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="pricing">
+            <div class="container">
+                <h2 class="section-title">Flexible Options</h2>
+                <div class="pricing-tiers">
+                    <div class="tier tier-free">
+                        <div class="tier-icon">🆓</div>
+                        <h4>Free Tools</h4>
+                        <p>Essential resources for all attorneys</p>
+                    </div>
+                    <div class="tier tier-paid">
+                        <div class="tier-icon">⭐</div>
+                        <h4>Premium</h4>
+                        <p>Advanced features & priority support</p>
+                    </div>
+                    <div class="tier tier-bespoke">
+                        <div class="tier-icon">🎯</div>
+                        <h4>Bespoke</h4>
+                        <p>Custom solutions for your firm</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-logo">
+                <span>Legal</span><span class="ai">AI</span><span>ntel</span>
+            </div>
+            <p>Florida Legal Data Solutions</p>
+            <p style="margin-top: 15px;"><a href="mailto:info@legalaintel.com">info@legalaintel.com</a></p>
+        </div>
+    </footer>
 </body>
 </html>
