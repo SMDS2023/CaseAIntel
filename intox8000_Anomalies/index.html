@@ -279,7 +279,7 @@
             </div>
             <div id="resultCount" aria-live="polite"></div>
             <div id="resultsTable" role="table" aria-label="Anomaly records table">
-                <div class="loading">Loading data...</div>
+                <div class="no-results">Select a filter above to load and search records.</div>
             </div>
         </div>
     </main>
@@ -296,6 +296,7 @@
 
     <script>
         let allData = null;
+        let dataLoading = false;
         let currentSort = { column: 'test_datetime', direction: 'desc' };
 
         const flagTooltips = {
@@ -444,6 +445,22 @@
         }
 
         function applyFilters() {
+            if (!allData) return; // Data not loaded yet
+
+            const machine = document.getElementById('machineSelect').value;
+            const agency = document.getElementById('agencySelect').value;
+            const officer = document.getElementById('officerSelect').value;
+
+            // Only show results if at least one filter is selected
+            if (!machine && !agency && !officer) {
+                document.getElementById('resultsTable').innerHTML =
+                    '<div class="no-results">Select a filter above to view records.</div>';
+                document.getElementById('resultCount').textContent = '';
+                document.getElementById('filterIndicator').textContent = '';
+                updateURL();
+                return;
+            }
+
             const records = getFilteredRecords();
             renderTable(records);
             updateFilterIndicator();
@@ -514,6 +531,9 @@
         }
 
         async function loadData() {
+            if (dataLoading || allData) return; // Prevent duplicate loads
+            dataLoading = true;
+
             try {
                 const response = await fetch('intox8000-data.json');
                 if (!response.ok) throw new Error('Failed to load data');
@@ -528,26 +548,29 @@
                 document.getElementById('dataDate').textContent = genDate.toLocaleDateString();
 
                 populateDropdowns();
-
-                document.getElementById('machineSelect').addEventListener('change', applyFilters);
-                document.getElementById('agencySelect').addEventListener('change', applyFilters);
-                document.getElementById('officerSelect').addEventListener('change', applyFilters);
-                document.getElementById('clearFilters').addEventListener('click', clearFilters);
-
                 loadFiltersFromURL();
-                applyFilters();
+
+                // Check if URL has filters, if so apply them
+                const params = new URLSearchParams(window.location.search);
+                if (params.get('machine') || params.get('agency') || params.get('officer')) {
+                    applyFilters();
+                }
 
             } catch (error) {
                 console.error('Error loading data:', error);
                 document.getElementById('resultsTable').innerHTML =
                     `<div class="no-results">Error loading data: ${error.message}</div>`;
+                dataLoading = false;
             }
         }
 
-        // Embedded data placeholder (replaced by export script)
-        // Data loaded from external JSON file
+        // Initialize event listeners
+        document.getElementById('machineSelect').addEventListener('change', applyFilters);
+        document.getElementById('agencySelect').addEventListener('change', applyFilters);
+        document.getElementById('officerSelect').addEventListener('change', applyFilters);
+        document.getElementById('clearFilters').addEventListener('click', clearFilters);
 
-        // Initialize
+        // Load data on page load (populates dropdowns, but doesn't render table until filter selected)
         loadData();
     </script>
 </body>
