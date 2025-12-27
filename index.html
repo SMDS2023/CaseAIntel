@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LegalAIntel - AI-Powered Data Solutions for Florida Attorneys</title>
-    <meta name="description" content="LegalAIntel provides AI-powered legal data tools for Florida attorneys. FDLE breath test analysis, lead generation, and custom solutions.">
+    <title>LegalAIntel - Data Tools for Florida Attorneys</title>
+    <meta name="description" content="LegalAIntel provides data tools for Florida attorneys. Public records research and analysis.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
@@ -113,8 +113,10 @@
 
         .services-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 30px;
+            max-width: 800px;
+            margin: 0 auto;
         }
 
         .service-card {
@@ -174,7 +176,6 @@
         }
 
         .badge-free { color: #4ade80; background: rgba(74, 222, 128, 0.15); }
-        .badge-paid { color: #a78bfa; background: rgba(167, 139, 250, 0.15); }
 
         .service-link {
             display: inline-block;
@@ -187,49 +188,6 @@
 
         .service-link:hover {
             text-decoration: underline;
-        }
-
-        /* Pricing Tiers */
-        .pricing {
-            padding: 60px 0;
-            text-align: center;
-        }
-
-        .pricing-tiers {
-            display: flex;
-            justify-content: center;
-            gap: 40px;
-            flex-wrap: wrap;
-            margin-top: 30px;
-        }
-
-        .tier {
-            text-align: center;
-        }
-
-        .tier-icon {
-            width: 60px;
-            height: 60px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto 15px;
-            font-size: 24px;
-        }
-
-        .tier-free .tier-icon { background: rgba(74, 222, 128, 0.15); }
-        .tier-paid .tier-icon { background: rgba(167, 139, 250, 0.15); }
-        .tier-bespoke .tier-icon { background: rgba(251, 191, 36, 0.15); }
-
-        .tier h4 {
-            font-size: 16px;
-            margin-bottom: 5px;
-        }
-
-        .tier p {
-            color: #707080;
-            font-size: 13px;
         }
 
         /* Contact Form */
@@ -269,15 +227,6 @@
             font-size: 14px;
         }
 
-        footer a {
-            color: #4a90d9;
-            text-decoration: none;
-        }
-
-        footer a:hover {
-            text-decoration: underline;
-        }
-
         /* Responsive */
         @media (max-width: 768px) {
             .hero-logo { font-size: 42px; }
@@ -302,69 +251,31 @@
                 <h1 class="hero-logo">
                     <span class="legal">Legal</span><span class="ai">AI</span><span class="intel">ntel</span>
                 </h1>
-                <p class="tagline">AI-Powered Data Solutions for Florida Attorneys</p>
-                <p class="sub-tagline">Transforming legal data into actionable insights</p>
-                <a href="/intox8000_Anomalies/" class="cta-button">Explore Our Live Tool</a>
+                <p class="tagline">Data Tools for Florida Attorneys</p>
+                <p class="sub-tagline">Public records research made simple</p>
+                <a href="/intox8000_Anomalies/" class="cta-button">Explore Our Tools</a>
             </div>
         </section>
 
         <section class="services">
             <div class="container">
-                <h2 class="section-title">Our Solutions</h2>
+                <h2 class="section-title">Available Tools</h2>
                 <div class="services-grid">
                     <div class="service-card live">
                         <div class="service-icon">🔬</div>
-                        <h3>FDLE Breath Test Tools</h3>
-                        <p>Searchable database of Intoxilyzer 8000 anomalies. Find control test failures, zero volume readings, and equipment irregularities to support DUI defense cases.</p>
-                        <span class="service-badge badge-live">Live Now</span>
+                        <h3>Intoxilyzer 8000 Database</h3>
+                        <p>Searchable database of Florida breath test machine records from FDLE public data. Filter by machine, agency, or operator.</p>
+                        <span class="service-badge badge-live">Available</span>
                         <span class="service-badge badge-free">Free</span>
                         <br>
-                        <a href="/intox8000_Anomalies/" class="service-link">Try It Now →</a>
-                    </div>
-
-                    <div class="service-card">
-                        <div class="service-icon">📊</div>
-                        <h3>Lead Generation Tools</h3>
-                        <p>AI-powered lead generation and client acquisition tools designed specifically for Florida law firms. Target the right clients at the right time.</p>
-                        <span class="service-badge badge-coming">Coming Soon</span>
-                    </div>
-
-                    <div class="service-card">
-                        <div class="service-icon">⚖️</div>
-                        <h3>Court Analytics</h3>
-                        <p>Data-driven insights into Florida court proceedings, judge patterns, and case outcomes to inform your litigation strategy.</p>
-                        <span class="service-badge badge-coming">Coming Soon</span>
+                        <a href="/intox8000_Anomalies/" class="service-link">Open Tool</a>
                     </div>
 
                     <div class="service-card">
                         <div class="service-icon">🛠️</div>
-                        <h3>Bespoke Solutions</h3>
-                        <p>Custom data tools built to your firm's specific needs. From case management integrations to specialized research databases.</p>
-                        <span class="service-badge badge-coming">Coming Soon</span>
-                        <span class="service-badge badge-paid">Custom Pricing</span>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section class="pricing">
-            <div class="container">
-                <h2 class="section-title">Flexible Options</h2>
-                <div class="pricing-tiers">
-                    <div class="tier tier-free">
-                        <div class="tier-icon">🆓</div>
-                        <h4>Free Tools</h4>
-                        <p>Essential resources for all attorneys</p>
-                    </div>
-                    <div class="tier tier-paid">
-                        <div class="tier-icon">⭐</div>
-                        <h4>Premium</h4>
-                        <p>Advanced features & priority support</p>
-                    </div>
-                    <div class="tier tier-bespoke">
-                        <div class="tier-icon">🎯</div>
-                        <h4>Bespoke</h4>
-                        <p>Custom solutions for your firm</p>
+                        <h3>More Tools Coming</h3>
+                        <p>Additional public records research tools are in development. Sign up below to be notified when new tools launch.</p>
+                        <span class="service-badge badge-coming">In Development</span>
                     </div>
                 </div>
             </div>
@@ -373,7 +284,7 @@
 
     <section class="contact" id="contact">
         <div class="container">
-            <h2 class="section-title">Stay Updated</h2>
+            <h2 class="section-title">Get Notified</h2>
             <p style="text-align: center; color: #a0a0b0; margin-bottom: 30px;">Be the first to know when new tools launch</p>
             <div class="form-container">
                 <script type="text/javascript" src="https://form.jotform.com/jsform/253597193371062"></script>
@@ -386,7 +297,7 @@
             <div class="footer-logo">
                 <span>Legal</span><span class="ai">AI</span><span>ntel</span>
             </div>
-            <p>Florida Legal Data Solutions</p>
+            <p>Florida Public Records Tools</p>
         </div>
     </footer>
 </body>
